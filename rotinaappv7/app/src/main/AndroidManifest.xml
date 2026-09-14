@@ -29,6 +29,16 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".ConfirmacaoTarefaActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Rotinapp" />
+
+        <activity
+            android:name=".ListaGridActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Rotinapp" />
+
         <!-- exported="true" necessário para o AlarmManager entregar o broadcast -->
         <receiver
             android:name=".TaskAlarmReceiver"

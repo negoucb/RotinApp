@@ -18,7 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-
+import android.content.Intent
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -298,6 +298,12 @@ fun AddTaskScreen(
                                 if (notificationsEnabled) {
                                     scheduleTaskNotification(context, savedTask)
                                 }
+
+                                // Navegação entre Activities via Intent, com parâmetro (requisito do professor)
+                                val intent = Intent(context, ConfirmacaoTarefaActivity::class.java)
+                                intent.putExtra(ConfirmacaoTarefaActivity.EXTRA_NOME_TAREFA, title)
+                                intent.putExtra(ConfirmacaoTarefaActivity.EXTRA_HORARIO, timeString)
+                                context.startActivity(intent)
                             }
                             navController.popBackStack()
                         }

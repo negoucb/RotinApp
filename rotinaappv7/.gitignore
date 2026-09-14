@@ -1,0 +1,4 @@
+.idea/
+app/build/
+*.iml
+local.properties
