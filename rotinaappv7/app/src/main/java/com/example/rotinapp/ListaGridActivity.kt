@@ -2,32 +2,29 @@ package com.example.rotinapp
 
 import android.os.Bundle
 import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.GridView
-import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.rotinapp.databinding.ActivityListaGridBinding
 
 class ListaGridActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityListaGridBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_lista_grid)
-
-        val listView: ListView = findViewById(R.id.listViewCategorias)
-        val gridView: GridView = findViewById(R.id.gridViewIcones)
-        val btnVoltar: Button = findViewById(R.id.btnVoltarListaGrid)
+        binding = ActivityListaGridBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         // Dados de exemplo para o ListView
         val categorias = listOf("Estudos", "Trabalho", "Saúde", "Lazer", "Casa")
         val listAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, categorias)
-        listView.adapter = listAdapter
+        binding.listViewCategorias.adapter = listAdapter
 
         // Dados de exemplo para o GridView
         val itensGrid = listOf("🏠", "📚", "💪", "🎮", "🧹", "💼", "🛒", "🎯", "⏰")
         val gridAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, itensGrid)
-        gridView.adapter = gridAdapter
+        binding.gridViewIcones.adapter = gridAdapter
 
-        btnVoltar.setOnClickListener {
+        binding.btnVoltarListaGrid.setOnClickListener {
             finish()
         }
     }
